@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[测试是否成功]]></title>
+    <url>%2F2019%2F06%2F23%2F%E6%B5%8B%E8%AF%95%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F%2F</url>
+    <content type="text"><![CDATA[奥克兰附近开了房间啊看来飞机阿喀琉斯的迪斯科浪费艰苦拉萨大家看到了飞机安卡拉的时间]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[nginx使用时遇到的问题]]></title>
     <url>%2F2019%2F06%2F20%2Fnginx%E4%BD%BF%E7%94%A8%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[今天nginx使用时，无法成功访问，查询日志发现问题 failed (1113: No mapping for the Unicode character exists in the target multi-byte code page) 解压的路径里面包含有中文的缘故，只要把解压后的文件剪切到没有包含中文的目录即可解决问题]]></content>
