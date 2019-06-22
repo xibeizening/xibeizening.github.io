@@ -12,18 +12,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[vuetify模板问题]]></title>
-    <url>%2F2019%2F06%2F20%2Fvuetify%E6%A8%A1%E6%9D%BF%E9%97%AE%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[在使用vuetify提供的table模板时，服务分页表格的代码示例中，遇到了问题，用最新的模板有一条语句问题，而使用老的语句就没有问题。123456789101112131415161718192021222324252627282930313233343536373839404142&lt;template&gt; &lt;div&gt; &lt;v-data-table :headers=&quot;headers&quot; :items=&quot;desserts&quot; :pagination.sync=&quot;pagination&quot; :total-items=&quot;totalDesserts&quot; :loading=&quot;loading&quot; class=&quot;elevation-1&quot; &gt; &lt;template slot=&quot;items&quot; slot-scope=&quot;props&quot;&gt; &lt;!--&lt;template v-slot:items=&quot;props&quot;&gt;--&gt; &lt;td&gt;&#123;&#123; props.item.name &#125;&#125;&lt;/td&gt; &lt;td class=&quot;text-xs-right&quot;&gt;&#123;&#123; props.item.calories &#125;&#125;&lt;/td&gt; &lt;td class=&quot;text-xs-right&quot;&gt;&#123;&#123; props.item.fat &#125;&#125;&lt;/td&gt; &lt;td class=&quot;text-xs-right&quot;&gt;&#123;&#123; props.item.carbs &#125;&#125;&lt;/td&gt; &lt;td class=&quot;text-xs-right&quot;&gt;&#123;&#123; props.item.protein &#125;&#125;&lt;/td&gt; &lt;td class=&quot;text-xs-right&quot;&gt;&#123;&#123; props.item.iron &#125;&#125;&lt;/td&gt; &lt;/template&gt; &lt;/v-data-table&gt; &lt;/div&gt;&lt;/template&gt;&lt;script&gt; export default &#123; name: &quot;MyBrand&quot;, data()&#123; return&#123; headers: [ // 头信息 &#123;text: &apos;id&apos;, align: &apos;center&apos;, value: &apos;id&apos;&#125;, &#123;text: &apos;名称&apos;, align: &apos;center&apos;, value: &apos;name&apos;, sortable: false&#125;, &#123;text: &apos;LOGO&apos;, align: &apos;center&apos;, value: &apos;image&apos;, sortable: false&#125;, &#123;text: &apos;首字母&apos;, align: &apos;center&apos;, value: &apos;letter&apos;,sortable: false&#125;, ] &#125; &#125; &#125;&lt;/script&gt;&lt;style scoped&gt;&lt;/style&gt; 如下所示：注释的配置无法使用，注释的配置是官网最新模板上的。 &lt;template slot=&quot;items&quot; slot-scope=&quot;props&quot;&gt; &lt;!--&lt;template v-slot:items=&quot;props&quot;&gt;--&gt;]]></content>
-      <categories>
-        <category>问题</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-        <tag>vuetify</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[lombok插件在IDEA中的使用]]></title>
     <url>%2F2019%2F06%2F20%2Flombok%E6%8F%92%E4%BB%B6%E5%9C%A8IDEA%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"><![CDATA[第一步：将插件安装在IDEA中 1安装步骤，选择File - &gt; setting - &gt; plugins，搜索lombok插件，选择安装 第二步：使用lombok，在pom文件中引入lombok的依赖 1234&lt;dependency&gt; &lt;groupId&gt;org.projectlombok&lt;/groupId&gt; &lt;artifactId&gt;lombok&lt;/artifactId&gt; &lt;/dependency&gt; 第三步：让其生效 选择File | Settings | Build, Execution, Deployment | Compiler | Annotation Processors勾选上]]></content>
