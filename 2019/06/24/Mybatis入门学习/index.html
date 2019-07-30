@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Maybatis,">
+  <meta name="keywords" content="Mybatis,">
 
 
 
@@ -80,17 +80,19 @@
 
 
 <meta name="description" content="注释全限定类名：限定类名，就是类名全称，带包路径的用点隔开，例如: java.lang.String。非限定(non-qualified)类名也叫短名，就是我们平时说的类名，不带包的，例如：String。非限定类名是相对于限定类名来说的，在Java中有很多类，不同的类之间会存在相同的函数或者方法，所以有时候就需要限定类名来调包。 而如果不存在相同的函数或者方法 ，就可以使用非限定(non-qual">
-<meta name="keywords" content="Maybatis">
+<meta name="keywords" content="Mybatis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mybatis入门学习">
 <meta property="og:url" content="http://yoursite.com/2019/06/24/Mybatis入门学习/index.html">
 <meta property="og:site_name" content="西贝则宁">
 <meta property="og:description" content="注释全限定类名：限定类名，就是类名全称，带包路径的用点隔开，例如: java.lang.String。非限定(non-qualified)类名也叫短名，就是我们平时说的类名，不带包的，例如：String。非限定类名是相对于限定类名来说的，在Java中有很多类，不同的类之间会存在相同的函数或者方法，所以有时候就需要限定类名来调包。 而如果不存在相同的函数或者方法 ，就可以使用非限定(non-qual">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-24T12:11:29.264Z">
+<meta property="og:image" content="https://github.com/xibeizening/images/blob/master/16.png?raw=true">
+<meta property="og:updated_time" content="2019-06-29T14:23:31.652Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mybatis入门学习">
 <meta name="twitter:description" content="注释全限定类名：限定类名，就是类名全称，带包路径的用点隔开，例如: java.lang.String。非限定(non-qualified)类名也叫短名，就是我们平时说的类名，不带包的，例如：String。非限定类名是相对于限定类名来说的，在Java中有很多类，不同的类之间会存在相同的函数或者方法，所以有时候就需要限定类名来调包。 而如果不存在相同的函数或者方法 ，就可以使用非限定(non-qual">
+<meta name="twitter:image" content="https://github.com/xibeizening/images/blob/master/16.png?raw=true">
 
 
 
@@ -347,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Maybatis/" itemprop="url" rel="index">
-                    <span itemprop="name">Maybatis</span>
+                  <a href="/categories/Mybatis/" itemprop="url" rel="index">
+                    <span itemprop="name">Mybatis</span>
                   </a>
                 </span>
 
@@ -469,14 +471,16 @@ ORM：
 
     当我们遵从了第三，四，五点之后，我们在开发中就无须再写dao的实现类。
 </code></pre><h2 id="在测试中运行"><a href="#在测试中运行" class="headerlink" title="在测试中运行"></a>在测试中运行</h2><p> 因为Maybatis中的SqlSessionFactory工厂，帮我们创建了Dao接口的代理对象，所以并不需要写实现类即可执行dao中的方法。</p>
-<pre><code>    第一步：读取配置文件
-    第二步：创建SqlSessionFactory工厂
-    第三步：创建SqlSession
-    第四步：创建Dao接口的代理对象
-    第五步：执行dao中的方法
-    第六步：释放资源
-
-    注意事项：
+<pre><code>第一步：读取配置文件
+第二步：创建SqlSessionFactory工厂
+第三步：创建SqlSession
+第四步：创建Dao接口的代理对象
+第五步：执行dao中的方法
+第六步：释放资源
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span><span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    <span class="comment">//1.读取配置文件</span></span><br><span class="line">    InputStream in = Resources.getResourceAsStream(<span class="string">"SqlMapConfig.xml"</span>);</span><br><span class="line">    <span class="comment">//2.创建SqlSessionFactory工厂</span></span><br><span class="line">    SqlSessionFactoryBuilder builder = <span class="keyword">new</span> SqlSessionFactoryBuilder();</span><br><span class="line">    SqlSessionFactory factory = builder.build(in);</span><br><span class="line">    <span class="comment">//3.使用工厂生产SqlSession对象</span></span><br><span class="line">    SqlSession session = factory.openSession();</span><br><span class="line">    <span class="comment">//4.使用SqlSession创建Dao接口的代理对象</span></span><br><span class="line">    IUserDao userDao = session.getMapper(IUserDao.class);</span><br><span class="line">    <span class="comment">//5.使用代理对象执行方法</span></span><br><span class="line">    List&lt;User&gt; users = userDao.findAll();</span><br><span class="line">    <span class="keyword">for</span>(User user : users)&#123;</span><br><span class="line">        System.out.println(user);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//6.释放资源</span></span><br><span class="line">    session.close();</span><br><span class="line">    in.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre><p> <img src="https://github.com/xibeizening/images/blob/master/16.png?raw=true" alt="avatar"></p>
+<pre><code>    注意事项：
+    加载主配置文件SqlMapConfig.xml的方式，如上图所示。
         不要忘记在映射配置中告知mybatis要封装到哪个实体类中
         配置的方式：指定实体类的全限定类名
 
@@ -488,15 +492,6 @@ ORM：
     我们在实际开发中，都是越简便越好，所以都是采用不写dao实现类的方式。
     不管使用XML还是注解配置。
     但是Mybatis它是支持写dao实现类的。
-</code></pre><h2 id="自定义Mybatis的分析："><a href="#自定义Mybatis的分析：" class="headerlink" title="自定义Mybatis的分析："></a>自定义Mybatis的分析：</h2><p>mybatis在使用代理dao的方式实现增删改查时做什么事呢？</p>
-<pre><code>只有两件事：
-    第一：创建代理对象
-    第二：在代理对象中调用selectList
-</code></pre><p>自定义mybatis能通过入门案例看到类</p>
-<pre><code>class Resources
-class SqlSessionFactoryBuilder
-interface SqlSessionFactory
-interface SqlSession
 </code></pre>
       
     </div>
@@ -514,7 +509,7 @@ interface SqlSession
       
         <div class="post-tags">
           
-            <a href="/tags/Maybatis/" rel="tag"># Maybatis</a>
+            <a href="/tags/Mybatis/" rel="tag"># Mybatis</a>
           
         </div>
       
@@ -536,6 +531,10 @@ interface SqlSession
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/29/Mybatis基于代理Dao的CRUD操作/" rel="prev" title="Mybatis基于代理Dao的CRUD操作">
+                Mybatis基于代理Dao的CRUD操作 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -617,7 +616,7 @@ interface SqlSession
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -628,7 +627,7 @@ interface SqlSession
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -639,7 +638,7 @@ interface SqlSession
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -688,7 +687,7 @@ interface SqlSession
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-number">1.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是框架？"><span class="nav-number">2.</span> <span class="nav-text">什么是框架？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三层架构"><span class="nav-number">3.</span> <span class="nav-text">三层架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#持久层技术解决方案"><span class="nav-number">4.</span> <span class="nav-text">持久层技术解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mybatis的概述"><span class="nav-number">5.</span> <span class="nav-text">Mybatis的概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mybatis的入门"><span class="nav-number">6.</span> <span class="nav-text">Mybatis的入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在测试中运行"><span class="nav-number">7.</span> <span class="nav-text">在测试中运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义Mybatis的分析："><span class="nav-number">8.</span> <span class="nav-text">自定义Mybatis的分析：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-number">1.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是框架？"><span class="nav-number">2.</span> <span class="nav-text">什么是框架？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三层架构"><span class="nav-number">3.</span> <span class="nav-text">三层架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#持久层技术解决方案"><span class="nav-number">4.</span> <span class="nav-text">持久层技术解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mybatis的概述"><span class="nav-number">5.</span> <span class="nav-text">Mybatis的概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mybatis的入门"><span class="nav-number">6.</span> <span class="nav-text">Mybatis的入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在测试中运行"><span class="nav-number">7.</span> <span class="nav-text">在测试中运行</span></a></li></ol></div>
             
 
           </div>

@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="西贝则宁">
 <meta property="og:description" content="概述异常，就是不正常的意思。在生活中:医生说,你的身体某个部位有异常,该部位和正常相比有点不同,该部位的功能将受影响.在程序中的意思就是：  异常 ：指的是程序在执行过程中，出现的非正常的情况，最终会导致JVM的非正常停止。  在Java等面向对象的编程语言中，异常本身是一个类，产生异常就是创建异常对象并抛出了一个异常对象。Java处理异常的方式是中断处理。 体系异常机制其实是帮助我们找到程序中的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-22T16:42:24.357Z">
+<meta property="og:updated_time" content="2019-07-30T11:15:58.098Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="异常">
 <meta name="twitter:description" content="概述异常，就是不正常的意思。在生活中:医生说,你的身体某个部位有异常,该部位和正常相比有点不同,该部位的功能将受影响.在程序中的意思就是：  异常 ：指的是程序在执行过程中，出现的非正常的情况，最终会导致JVM的非正常停止。  在Java等面向对象的编程语言中，异常本身是一个类，产生异常就是创建异常对象并抛出了一个异常对象。Java处理异常的方式是中断处理。 体系异常机制其实是帮助我们找到程序中的">
@@ -439,7 +439,12 @@ throw new ArrayIndexOutOfBoundsException(&quot;该索引在数组中不存在，
 处理异常的代码
 //记录日志/打印异常信息/继续抛出异常
 }
-</code></pre><h3 id="finally代码块"><a href="#finally代码块" class="headerlink" title="finally代码块"></a>finally代码块</h3>
+</code></pre><h3 id="finally代码块"><a href="#finally代码块" class="headerlink" title="finally代码块"></a>finally代码块</h3><p>finally：有一些特定的代码无论异常是否发生，都需要执行。另外，因为异常会引发程序跳转，导致有些语句执行 不到。而finally就是解决这个问题的，在finally代码块中存放的代码都是一定会被执行的。</p>
+<ul>
+<li>try…catch….finally:自身需要处理异常,最终还得关闭资源。</li>
+<li>注意:finally不能单独使用。</li>
+</ul>
+
       
     </div>
     
@@ -479,8 +484,8 @@ throw new ArrayIndexOutOfBoundsException(&quot;该索引在数组中不存在，
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/02/IDEA，maven项目中关于设置JDK版本的问题/" rel="prev" title="maven项目中关于设置JDK版本的问题">
-                maven项目中关于设置JDK版本的问题 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/17/线程-，同步/" rel="prev" title="线程 ，同步">
+                线程 ，同步 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -563,7 +568,7 @@ throw new ArrayIndexOutOfBoundsException(&quot;该索引在数组中不存在，
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -574,7 +579,7 @@ throw new ArrayIndexOutOfBoundsException(&quot;该索引在数组中不存在，
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -585,7 +590,7 @@ throw new ArrayIndexOutOfBoundsException(&quot;该索引在数组中不存在，
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
